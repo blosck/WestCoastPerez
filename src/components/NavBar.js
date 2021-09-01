@@ -10,7 +10,7 @@ const style2 = {
     color: "darkblue"
 }
 
-function App(){
+function NavBar(){
     return(
         <div className="app" style={style1}>
             <header className="brand">
@@ -27,3 +27,5 @@ function App(){
         </div>
     )
 }
+
+export default NavBar
