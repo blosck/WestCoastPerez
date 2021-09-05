@@ -6,7 +6,7 @@ function App() {
   return (
     <>
       <NavBar/>
-      <Greeting greetings= {["estos", "son", "greeting", "props", "(creo)"]}/>
+      <Greeting greetings= {["estos", "son", "greeting", "props", "(creo)."]}/>
     </>
   );
 }
