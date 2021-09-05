@@ -1,9 +1,13 @@
 import './App.css';
-import NavBar from './components/NavBar'
+import NavBar from './components/NavBar';
+import Greeting from './components/ItemListContainer'
 
 function App() {
   return (
-    <NavBar />
+    <>
+      <NavBar/>
+      <Greeting greetings= {["estos", "son", "greeting", "props", "(creo)"]}/>
+    </>
   );
 }
 

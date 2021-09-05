@@ -1,0 +1,41 @@
+.app{
+    margin: 0;
+}
+
+.navegationBar{
+    display: flex;
+    align-items: center;
+    background-color: rgb(212, 88, 16);
+    justify-content: space-between;
+}
+
+.brand__name{
+    display: flex;
+    color: midnightblue;
+    margin: 10px 20px;
+    width: auto;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.navegationBar__container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0;
+    color: midnightblue;
+    list-style-type: none;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    margin: 5px 15px;
+}
+
+.navegationBar__item{
+    background-color: rgb(202, 108, 54);
+    margin: 5px;
+    padding: 5px 15px;
+    border-radius: .5em;
+}
+
+.cart{
+    height: 30px;
+    margin: 10px 10px 10px 140px;
+}
