@@ -8,7 +8,8 @@ const ListItemContainer = (props) => {
             <p className="parrafo">{props.greetings[1]}</p>
             <p className="parrafo">{props.greetings[2]}</p>
             <p className="parrafo">{props.greetings[3]}</p>
-            <p className="parrafo">{props.greetings[4]}</p>            
+            <p className="parrafo">{props.greetings[4]}</p>  
+            <p className="parrafo">{props.cosas}</p>            
         </>
     )
 }

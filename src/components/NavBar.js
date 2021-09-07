@@ -1,7 +1,8 @@
+import {useState} from 'react'
 import {Cart} from "./CartWidget";
 import "../styles/nav.css";
 
-function NavBar(){
+function NavBar(props){
     return(
         <div className="app">
             <nav className="navegationBar">
@@ -13,6 +14,7 @@ function NavBar(){
                     <li className="navegationBar__item">ACCESORIOS</li>
                 </ul>
                 <Cart/>
+                {props.children}
             </nav>
         </div>
     )
