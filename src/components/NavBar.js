@@ -1,4 +1,3 @@
-import {useState} from 'react'
 import {Cart} from "./CartWidget";
 import "../styles/nav.css";
 

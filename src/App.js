@@ -19,9 +19,10 @@ function App() {
         <p>Hola!</p>   
       </NavBar>
       <Greeting greetings= {["estos", "son", "greeting", "props", "(creo)."]} cosas = {"cosas1"}/>
-      <ItemCount stock="10" initial="1" onAdd={onAdd} />
+      <ItemCount stock="10" initial="1" onAd={onAdd} />
     </>
   );
 }
 
 export default App;
+// </>

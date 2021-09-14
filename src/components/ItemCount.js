@@ -1,7 +1,7 @@
 import {useState} from 'react'
 import "../styles/nav.css";
 
-function ItemCount({stock, initial, onAdd}){
+function ItemCount({stock, initial, onAd}){
 
     const [contador, setContador] = useState (1)
     
@@ -24,7 +24,7 @@ function ItemCount({stock, initial, onAdd}){
                 <button className="boton" onClick={sumar}>+</button>
             </div>
             <div className="counter">
-                <button className="botonCarrito" onClick={()=>onAdd(contador)}>Agregar al carrito</button>
+                <button className="botonCarrito" onClick={()=>onAd(contador)}>Agregar al carrito</button>
             </div>
         </div>
     )
