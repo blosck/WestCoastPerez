@@ -1,7 +1,10 @@
 import './App.css';
+import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
 import NavBar from './components/NavBar';
-import Greeting from './components/ItemListContainer'
+import ItemListContainer from './components/ItemListContainer';
 import ItemCount from './components/ItemCount';
+import ItemDetailContainer from './components/ItemDetailContainer';
+
 
 function App() {
 
@@ -15,11 +18,22 @@ function App() {
 
   return (
     <>
-      <NavBar>
-        <p>Hola!</p>   
-      </NavBar>
-      <Greeting greetings= {["estos", "son", "greeting", "props", "(creo)."]} cosas = {"cosas1"}/>
-      <ItemCount stock="10" initial="1" onAd={onAdd} />
+      <Router>
+        <NavBar>
+          <p>Hola!</p>   
+        </NavBar>
+        <Switch>
+          <Route path="/" exact>
+            <ItemListContainer greetings= {["estos", "son", "greeting", "props", "(creo)."]} cosas = {"cosas1"}/>
+          </Route>
+          <Route path ="/contador" exact>
+            <ItemCount stock="10" initial="1" onAd={onAdd} />
+          </Route>
+          <Route exact path ="/detail">
+            <ItemDetailContainer/>
+          </Route>
+        </Switch>
+      </Router>
     </>
   );
 }

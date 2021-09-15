@@ -11,9 +11,3 @@ function ItemList({productos}){
 }
 
 export default ItemList
-
-/*Producto
-.then(data => {
-    setProduct(data)
-}
-    )*/
