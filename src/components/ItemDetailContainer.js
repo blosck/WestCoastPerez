@@ -1,8 +1,8 @@
 import React from 'react'
-import ItemDetail from './ItemDetail'
 import { useState , useEffect } from 'react/cjs/react.development'
-import "../styles/nav.css"
 import { useParams } from 'react-router'
+import "../styles/nav.css"
+import ItemDetail from './ItemDetail'
 
 const productos = [
     {id: 1, category: "cases", title: "Acid Smiles - Neon Green iPhone 12 Pro Case", description: "Nuestro innovador material a prueba de golpes, qìtech ™, prácticamente ruega que dejes caer tu teléfono y lo pongas a prueba. Cada detalle está afinado para crear una protección óptima y una resistencia superior a los impactos en una funda para teléfonos ultra elegante y delgada.", price: 55, pictureUrl: "https://cdn-image02.casetify.com/usr/16571/16546571/~v8/13084976x2_iphone12-pro_16001659.png.1000x1000-w.m80.jpg"},
@@ -39,14 +39,26 @@ const producto = new Promise((resolve, rejected) => {
 
 const ItemDetailContainer = () => {
 
-    const [detail, setDetail] = useState()
+    const [detail, setDetail] = useState([])
     const {id} = useParams()
 
     useEffect(() => { //Desde aquí estoy haciendo uso de la API o recurso
-        if(id){
+        producto
+        .then((res) => {
+            if(id) {
+                const itemFiltrado = res.filter((item) => item.id === id)
+                setDetail(itemFiltrado)
+            } else {
+                setDetail(res)
+            }
+        }) 
+        .catch((err) => console.log("error"))
+    }, [])
+        
+        /*if(id){
             producto
             .then(res => {
-                setDetail(res.filter(prod => prod.category === id))
+                setDetail(res.filter(prod => prod.id === id))
             })
             .catch(err => console.log(err))
             .finally(() => console.log("Proceso terminado"))
@@ -58,11 +70,11 @@ const ItemDetailContainer = () => {
         .catch(err => console.log(err))
         .finally(() => console.log("Proceso terminado"))
         }
-    }, [id]);
+    }, [id]);*/
 
     return (
         <>
-            {detail && <ItemDetail producto={detail}/>}           
+            <ItemDetail key={detail} detail={detail}/>           
         </>
     )
 }

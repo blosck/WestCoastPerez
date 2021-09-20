@@ -60,7 +60,6 @@ const ListItemContainer = (props) => {
         }
     }, [idCategoria]);
 
-    console.log(idCategoria);
     return (
         <>
             <p className="parrafo">{props.greetings}</p> 
