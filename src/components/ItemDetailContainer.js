@@ -46,8 +46,7 @@ const ItemDetailContainer = () => {
         if(id){
             producto
             .then(res => {
-                const producto = res.filter((item) => parseInt(item.id) === parseInt(id))
-                setDetail(filtrado)
+                setDetail(res.filter(prod => prod.category === id))
             })
             .catch(err => console.log(err))
             .finally(() => console.log("Proceso terminado"))
