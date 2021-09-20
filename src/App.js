@@ -8,14 +8,6 @@ import ItemDetailContainer from './components/ItemDetailContainer';
 
 function App() {
 
-  const onAdd = (contador) => {
-    if(contador == 1){
-        alert("Agregaste " + contador + " producto.")
-    }else{
-        alert("Agregaste " + contador + " productos.")
-    }
-  }
-
   return (
     <>
       <Router>
@@ -23,15 +15,17 @@ function App() {
           <p>Hola!</p>   
         </NavBar>
         <Switch>
+
           <Route path="/" exact>
-            <ItemListContainer greetings= {["estos", "son", "greeting", "props", "(creo)."]} cosas = {"cosas1"}/>
+            <ItemListContainer greetings= {"estos son reeting props (creo)."} cosas = {"cosas1"}/>
           </Route>
-          <Route path ="/contador" exact>
-            <ItemCount stock="10" initial="1" onAd={onAdd} />
-          </Route>
-          <Route exact path ="/detail">
+          <Route path="/categoria/:idCategoria" component={ItemListContainer}/>
+
+          <Route exact path ="/item">
             <ItemDetailContainer/>
           </Route>
+          <Route path="/item/:id" component={ItemDetailContainer}/>
+
         </Switch>
       </Router>
     </>
