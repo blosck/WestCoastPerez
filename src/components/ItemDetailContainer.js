@@ -46,8 +46,8 @@ const ItemDetailContainer = () => {
         producto
         .then((res) => {
             if(id) {
-                const itemFiltrado = res.filter((item) => item.id === id)
-                setDetail(itemFiltrado)
+                const itemFiltrado = res.filter((item) => item.id === parseInt(id))
+                setDetail(itemFiltrado[0])
             } else {
                 setDetail(res)
             }
