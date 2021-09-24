@@ -1,33 +1,32 @@
 import {Cart} from "./CartWidget";
-import "../styles/nav.css";
 import {Link} from "react-router-dom"
+import "../styles/nav.css";
 
-function NavBar(props){
+function NavBar(){
     return(
         <div className="app">
             <nav className="navegationBar">
-                <Link extact to="/">
+                <Link to="/">
                 <h1 className="brand__name">West Coast Gear</h1>
                 </Link>
                 <ul className="navegationBar__container">
-                    <Link extact to="/categoria/cases">
+                    <Link to="/categoria/cases">
                         <li className="navegationBar__item">Cases</li>
                     </Link>
-                    <Link extact to="/categoria/caps">
+                    <Link to="/categoria/caps">
                         <li className="navegationBar__item">Caps</li>
                     </Link>
-                    <Link extact to="/categoria/mascarillas">
+                    <Link to="/categoria/mascarillas">
                         <li className="navegationBar__item">Mascarillas</li>
                     </Link>
-                    <Link extact to="/categoria/collares">
+                    <Link to="/categoria/collares">
                         <li className="navegationBar__item">Collares</li>
                     </Link>
-                    <Link extact to="/categoria/bags">
+                    <Link to="/categoria/bags">
                         <li className="navegationBar__item">Bags</li>
                     </Link>
                 </ul>
                 <Cart/>
-                {props.children}
             </nav>
         </div>
     )

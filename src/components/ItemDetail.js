@@ -1,21 +1,18 @@
 import React from "react";
 import { useState } from "react";
+import { useCartContext } from "../context/cartContext"
 import "../styles/nav.css";
 import ItemCount from "./ItemCount";
 
 function ItemDetail({detail}){
 
     const [cantidad, setCantidad] = useState(0)
+    const {AddToCart} = useCartContext()
         
     const onAdd = (contador) => {
         setCantidad(contador)
-        if(contador === 1){
-            alert("Agregaste " + contador + " producto.")
-        }else{
-            alert("Agregaste " + contador + " productos.")
-        }
+        AddToCart({id: detail.id, producto: detail.title, precio: detail.price, cantidad: contador, total: detail.price*contador, foto: detail.pictureUrl})
     }
-    console.log(cantidad)
     
     return(
         <>
@@ -25,7 +22,7 @@ function ItemDetail({detail}){
                     <p className="pricePro">{"US $" + detail.price}</p>
                     <p className="descriptionPro">{detail.description}</p>
                     <ItemCount stock="10" initial="1" onAdd={onAdd} />
-            </div>        
+            </div>
         </>
     )
 }
