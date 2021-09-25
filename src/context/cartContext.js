@@ -11,12 +11,10 @@ export default function CartContextProvider({children}) {
     function AddToCart(item) {
         let carrito = [...listaCarrito]
         console.log(carrito)
+        console.log(item);
 
-        //console.log("item", item);
-        //console.log("id", item.id);
-        if (carrito.some(i => i.id === item.id)){
+            if (carrito.some(i => i.id === item.id)){
             carrito.find(i => i.id === item.id).cantidad += item.cantidad
-            console.log(item.cantidad);
             carrito.find(i => i.id === item.id).total += (item.cantidad*item.precio)
 
             setListaCarrito(carrito)
@@ -26,11 +24,24 @@ export default function CartContextProvider({children}) {
 
             }
     }
+    
+    function LimpiarCarrito() {
+        setListaCarrito([])
+    }
+
+    function EliminarItem(id) {
+        setListaCarrito( listaCarrito.filter(item => item.id !== id ))
+        
+    }
+
+    function EstaEnCarro(id) {
+        listaCarrito.some(item => item.id === id )
+    }
 
     console.log(listaCarrito)
 
     return(
-        <CartContext.Provider value={{listaCarrito, AddToCart}}>
+        <CartContext.Provider value={{listaCarrito, AddToCart, LimpiarCarrito, EliminarItem, EstaEnCarro}}>
             {children}
         </CartContext.Provider>
       

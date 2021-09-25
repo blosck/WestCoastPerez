@@ -10,9 +10,9 @@ function Cart(){
             {listaCarrito.map(i =>  <div key={i.id}>
                                         <img className="fotoCarrito" src={i.foto} alt={i.producto}/>
                                         <p className="productoCarrito">{i.producto}</p>
-                                        <p className="precioProdCarrito">{i.precio}</p>
+                                        <p className="precioProdCarrito">{"US $"+i.precio}</p>
                                         <p className="cantProductoCarrito">{i.cantidad}</p>
-                                        <p className="total1ProdCarrito">{i.total}</p>
+                                        <p className="total1ProdCarrito">{"US $"+i.total}</p>
                                         <br/>
                                     </div>)}          
         </>
