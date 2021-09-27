@@ -1,8 +1,9 @@
-import {Cart} from "./CartWidget";
+import {CartWidget} from "./CartWidget";
 import {Link} from "react-router-dom"
 import "../styles/nav.css";
 
 function NavBar(){
+
     return(
         <div className="app">
             <nav className="navegationBar">
@@ -26,7 +27,7 @@ function NavBar(){
                         <li className="navegationBar__item">Bags</li>
                     </Link>
                 </ul>
-                <Cart/>
+                <CartWidget/>
             </nav>
         </div>
     )

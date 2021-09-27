@@ -37,7 +37,16 @@
 
 .cart{
     height: 30px;
-    margin: 10px 10px 10px 140px;
+    margin: 10px 0px 10px 140px;
+}
+
+.widget{
+    display: flex;
+}
+
+.total{
+    height: 30px;
+    margin: 13px 10px 10px 5px;
 }
 
 .parrafo{
@@ -90,4 +99,10 @@
 
 .fotoCarrito{
     height: 80px;
+}
+
+.carritoOculto{
+    display: none;
+    height: 30px;
+    margin: 10px 10px 10px 140px;
 }
