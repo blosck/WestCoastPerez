@@ -8,20 +8,19 @@ export default function CartContextProvider({children}) {
     const [listaCarrito, setListaCarrito] = useState([])
 
     function AddToCart(item) {
-        let carrito = [...listaCarrito]
-        console.log(carrito)
-        console.log(item)
         
-        if (carrito.some(i => i.id === item.id)){
-            carrito.find(i => i.id === item.id).cantidad += item.cantidad
-            carrito.find(i => i.id === item.id).total += (item.cantidad*item.precio)
+        if (listaCarrito.some(i => i.id === item.id)){
+            listaCarrito.find(i => i.id === item.id).total += (item.cantidad*item.precio)
+            listaCarrito.find(i => i.id === item.id).cantidad += item.cantidad
             
-            setListaCarrito(carrito)
-            console.log(carrito)
+            setListaCarrito(listaCarrito)
+            console.log(listaCarrito)
         }else{
             setListaCarrito([...listaCarrito, item])
         }
     }
+
+    console.log(listaCarrito);
     
     function LimpiarCarrito() {
         setListaCarrito([])

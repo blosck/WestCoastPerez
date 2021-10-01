@@ -1,16 +1,14 @@
 import React from "react";
-import { useState } from "react";
 import { useCartContext } from "../context/cartContext"
 import "../styles/nav.css";
 import ItemCount from "./ItemCount";
 
 function ItemDetail({detail}){
-
-    const [cantidad, setCantidad] = useState(0)
+    
+    console.log(detail);
     const {AddToCart} = useCartContext()
         
     const onAdd = (contador) => {
-        setCantidad(contador)
         AddToCart({id: detail.id, producto: detail.title, precio: detail.price, cantidad: contador, total: detail.price*contador, foto: detail.pictureUrl})
     }
     
