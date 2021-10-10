@@ -34,7 +34,7 @@ function Form(){
 
         const db = getFirestore()
         db.collection('ordenes').add(order)
-        .then(res => alert("Su número de orden de compra es: " + res.id))
+        .then(res => alert("Su compra se ha concretado con éxito. Su número de orden de compra es: " + res.id))
         .catch(err => console.log(err))
         .finally(() =>
         {setFormData({})
