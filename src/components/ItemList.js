@@ -1,11 +1,11 @@
+import "../styles/style.css";
 import React from "react";
-import "../styles/nav.css";
 import Item from "./Item"
 
 function ItemList({productos}){
     return(
         <>
-           {productos.map(pro => <Item key={pro.id} pro={pro}/>)}            
+            {productos.map(pro => <Item key={pro.id} pro={pro}/>)}            
         </>
     )
 }

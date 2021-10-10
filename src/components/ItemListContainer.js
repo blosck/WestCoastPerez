@@ -1,9 +1,9 @@
 import React from 'react'
 import { useState , useEffect } from 'react/cjs/react.development'
-import { useParams } from "react-router-dom";
-import "../styles/nav.css"
-import ItemList from './ItemList'
 import { getFirestore } from '../services/getFirebase';
+import { useParams } from "react-router-dom";
+import ItemList from './ItemList'
+import "../styles/style.css"
 
 const ListItemContainer = (props) => {
 
@@ -11,33 +11,30 @@ const ListItemContainer = (props) => {
     const [productos, setProductos] = useState([])
     const {idCategoria} = useParams()
 
-    useEffect(() => { //Desde aquí estoy haciendo uso de la API o recurso
+    useEffect(() => {
         
-        if(idCategoria){
-            const dbQuery = getFirestore()
-            dbQuery.collection('items').where('category', '==', idCategoria).get()
-            .then(res => {
-                setProductos(res.docs.map(producto =>({id: producto.id, ...producto.data()})))
-            })
-            .catch(err => console.log(err))
-            .finally(() => setLoading(false))            
-        } else {
-            const dbQuery = getFirestore()
-            dbQuery.collection('items').get()
-            .then(res => {
-                setProductos(res.docs.map(producto =>({id: producto.id, ...producto.data()})))
-            })
-            .catch(err => console.log(err))
-            .finally(() => setLoading(false)) 
-        }
+        const dbQuery = getFirestore()
+        const opcionQuery = idCategoria ? dbQuery.collection('items').where('category', '==', idCategoria) : dbQuery.collection('items')
 
+        opcionQuery.get()
+        .then(res => {
+            setProductos(res.docs.map(producto =>({id: producto.id, ...producto.data()})))
+        })
+        .catch(err => console.log(err))
+        .finally(() => setLoading(false)) 
+        
     }, [idCategoria]);
 
     return (
         <>
-            {loading ? <h1>Cargando contenido...</h1> :
-            <div>
-                <ItemList productos={productos}/>
+            {loading ? <div className="loading"><h1>Cargando productos...</h1></div> :
+            <div className="itemDetail">
+                <div className="itemDetail1">
+                    <h2>Encuentra lo que andas buscando</h2>
+                </div>
+                <div className="itemDetail2">
+                    <ItemList productos={productos}/>
+                </div>
             </div>}
             </>
     )

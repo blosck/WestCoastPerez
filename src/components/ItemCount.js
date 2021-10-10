@@ -1,6 +1,6 @@
-import {useState} from 'react'
+import { useState } from 'react'
 import { Link } from 'react-router-dom';
-import "../styles/nav.css";
+import "../styles/style.css";
 
 function ItemCount({stock, initial, onAdd}){
 
@@ -25,6 +25,9 @@ function ItemCount({stock, initial, onAdd}){
     
     return(
         <div>
+            <div className="counter0">
+                <p className="cantidad">Seleccione la cantidad a comprar</p>
+            </div>
             <div className="counter">
                 <button className="boton" onClick={restar}>-</button>
                 <p className="contador">{contador}</p>
@@ -33,9 +36,14 @@ function ItemCount({stock, initial, onAdd}){
             <div className="counter">
                 {cambiarBoton ? 
                 <button className="botonCarrito" onClick={agregarACart}>Agregar al carrito</button> :
-                <Link to={"/cart"}>
-                <button className="botonCarrito">Terminar compra</button>
-                </Link>
+                <>
+                    <Link to={"/cart"}>
+                        <button className="botonCarrito">Terminar compra</button>
+                    </Link>
+                    <Link to="/">
+                        <button className="botonCarrito">Ver más productos</button>
+                    </Link>
+                </>
                 }
             </div>
         </div>
@@ -43,5 +51,3 @@ function ItemCount({stock, initial, onAdd}){
 }
 
 export default ItemCount
-
-// </>

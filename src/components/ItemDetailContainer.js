@@ -1,9 +1,9 @@
-import React from 'react'
+import "../styles/style.css"
 import { useState , useEffect } from 'react'
-import { useParams } from 'react-router'
 import { getFirestore } from '../services/getFirebase'
-import "../styles/nav.css"
+import { useParams } from 'react-router'
 import ItemDetail from './ItemDetail'
+import React from 'react'
 
 const ItemDetailContainer = () => {
 
@@ -11,31 +11,22 @@ const ItemDetailContainer = () => {
     const [detail, setDetail] = useState([])
     const {id} = useParams()
 
-    useEffect(() => { //Desde aquí estoy haciendo uso de la API o recurso
+    useEffect(() => {
         if(id){
             const dbQuery = getFirestore()
             dbQuery.collection('items').doc(id).get()
             .then(res => {
-                console.log(res);
                 setDetail({id: res.id, ...res.data()})
             })
             .catch(err => console.log(err))
             .finally(() => setLoading(false))            
-        } else {
-            const dbQuery = getFirestore()
-            dbQuery.collection('items').get()
-            .then(res => {
-                setDetail(res)
-            })
-            .catch(err => console.log(err))
-            .finally(() => setLoading(false)) 
-        }
+        } 
     }, [])
         
     return (
         <>
-            {loading ? <h1>Cargando contenido...</h1> :
-            <div>
+            {loading ? <div className="loading"><h1>Cargando productos...</h1></div> :
+            <div className="itemDetail4">
                 <ItemDetail key={detail} detail={detail}/>           
             </div>}
         </>

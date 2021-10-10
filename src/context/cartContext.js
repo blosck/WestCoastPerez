@@ -19,8 +19,6 @@ export default function CartContextProvider({children}) {
             setListaCarrito([...listaCarrito, item])
         }
     }
-
-    console.log(listaCarrito);
     
     function LimpiarCarrito() {
         setListaCarrito([])
@@ -38,7 +36,7 @@ export default function CartContextProvider({children}) {
     function TotalAPagar() {
         let total = 0
         listaCarrito.forEach((item) => {total += (item.total)})
-        return (total)
+        return (parseFloat(total).toFixed(2))
     }
 
     function TotalProductos() {
@@ -47,13 +45,10 @@ export default function CartContextProvider({children}) {
         return parseInt(cant)        
     }
 
-
     return(
         <CartContext.Provider value={{listaCarrito, AddToCart, LimpiarCarrito, EliminarItem, EstaEnCarro, TotalAPagar, TotalProductos}}>
             {children}
         </CartContext.Provider>
       
     )
-
 }
-
