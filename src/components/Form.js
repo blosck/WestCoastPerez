@@ -1,7 +1,7 @@
 import React from "react"
 import "../styles/style.css";
 import 'firebase/firestore'
-import firebase from "firebase";
+import firebase from "firebase/app";
 import { useState } from "react";
 import { getFirestore } from "../services/getFirebase";
 import { useCartContext } from "../context/cartContext"

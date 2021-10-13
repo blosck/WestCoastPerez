@@ -1,5 +1,5 @@
 import React from 'react'
-import { useState , useEffect } from 'react/cjs/react.development'
+import { useState , useEffect } from 'react'
 import { getFirestore } from '../services/getFirebase';
 import { useParams } from "react-router-dom";
 import ItemList from './ItemList'

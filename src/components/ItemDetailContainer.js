@@ -21,8 +21,8 @@ const ItemDetailContainer = () => {
             .catch(err => console.log(err))
             .finally(() => setLoading(false))            
         } 
-    }, [])
-        
+    }, [id])
+            
     return (
         <>
             {loading ? <div className="loading"><h1>Cargando productos...</h1></div> :
