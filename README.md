@@ -7,8 +7,8 @@ Es la conclusión y prototipo final de un proyecto de e-commerce que se enfoca e
 El resultado conseguido es debido al contenido estudiado y aplicado del curso de React JS impartido mediante clases online por parte de Coderhouse. La cursada tuvo una extensión de 7 semanas (2 horas cada clase, 2 clases a la semana).
 
 ## _Librerías externas_
-- Firebase: Utilizado para consumir y almacenar datos sin la necesidad de recurrir a back-end.
-- react-router-dom: Para que la navegabilidas funciones tipo SPA, sin recargas entre páginas.
+- Firebase: Utilizado para consumir y almacenar datos sin la necesidad de recurrir a backend.
+- react-router-dom: Para que la navegabilidad funcione tipo SPA, sin recargas entre páginas.
 
 ## _Instalación_
 
