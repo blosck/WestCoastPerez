@@ -9,7 +9,6 @@ El resultado conseguido es debido al contenido estudiado y aplicado del curso de
 ## _Librerías externas_
 - Firebase: Utilizado para consumir y almacenar datos sin la necesidad de recurrir a back-end.
 - react-router-dom: Para que la navegabilidas funciones tipo SPA, sin recargas entre páginas.
-- Ejemplo.
 
 ## _Instalación_
 
